@@ -1,6 +1,7 @@
 <?php
 require_once '../connectData.php';
 use App\Controler\Router;
+use App\Controler\controlUrl;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +29,7 @@ use App\Controler\Router;
                 <div class="display-4 align-self-center ml-4 name-shop"><i>HandMade</i></div>
             </div>
         </div>
+        <script>console.log('<?=$_SERVER['REQUEST_URI']?>')</script>
     <?php
     $Router = new Router($PDO);
     $request = $_SERVER['REQUEST_URI'];

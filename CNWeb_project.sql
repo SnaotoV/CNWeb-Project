@@ -29,12 +29,22 @@ insert into sanpham values('4','Thú cưng bằng len','image/animal2.jpg',30000
 insert into sanpham values('5','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
 insert into sanpham values('6','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
 insert into sanpham values('7','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
-select * from danhmuc;
+insert into sanpham values('8','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
+insert into sanpham values('9','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
+insert into sanpham values('10','Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len','DL');
+select * from sanpham;
 Delimiter $$
 drop procedure if exists xuatSP $$
 create procedure xuatSP(iddm char(10), batdau int,ketthuc int)
 begin
-SELECT * FROM sanpham where iddm = iddm LIMIT batdau, ketthuc;
-end;
-call xuatSP('DL',0,9)
+SELECT * FROM sanpham where sanpham.iddm = iddm LIMIT batdau, ketthuc;
+end;$$
+call xuatSP('VP',0,9);
+Delimiter $$
+drop procedure if exists xuatAllSP $$
+create procedure xuatAllSP(batdau int,ketthuc int)
+begin
+SELECT * FROM sanpham LIMIT batdau, ketthuc;
+end;$$
+call xuatSP('DL',0,9);
 select count(id) as soluong from sanpham where iddm ='DL';

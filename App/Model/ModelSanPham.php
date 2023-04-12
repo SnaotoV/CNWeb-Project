@@ -16,6 +16,9 @@ class ModelSanPham{
     public function countSanPhamTheoDanhMuc($iddm){
         return count($this->getSanPhamTheoDanhMuc($iddm));
     }
+    public function countSanPham(){
+        return count($this->getSanPham());
+    }
     public function getSanPhamTheoTrangDanhMuc($iddm,$page){
         $allSanPham = [];
         $statement = $this->db->prepare('call xuatSP(:iddm,:batdau,:ketthuc);');
@@ -36,6 +39,35 @@ class ModelSanPham{
         $k=1;
         $statement = $this->db->prepare('SELECT * FROM sanpham where iddm = :iddm');
         $statement->execute(array('iddm'=>$iddm));
+        while($row = $statement->fetch()){
+            $SanPham = new ModelSanPham($this->db);
+            $SanPham->fillFromSanPham($row);
+            $allSanPham[$k] =$SanPham;
+            $k++;
+        }
+        return $allSanPham;
+    }
+    public function getTrangSanPham($page){
+        $allSanPham = [];
+        $k=1;
+        $statement = $this->db->prepare('call xuatAllSP(:batdau,:ketthuc); ');
+        $statement->execute([
+            "batdau"=>($page-1)*9,
+            "ketthuc"=>($page)*9
+        ]);
+        while($row = $statement->fetch()){
+            $SanPham = new ModelSanPham($this->db);
+            $SanPham->fillFromSanPham($row);
+            $allSanPham[$k] =$SanPham;
+            $k++;
+        }
+        return $allSanPham;
+    }
+    public function getSanPham(){
+        $allSanPham = [];
+        $k=1;
+        $statement = $this->db->prepare('SELECT * FROM sanpham');
+        $statement->execute();
         while($row = $statement->fetch()){
             $SanPham = new ModelSanPham($this->db);
             $SanPham->fillFromSanPham($row);
