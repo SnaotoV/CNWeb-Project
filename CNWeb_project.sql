@@ -11,6 +11,7 @@ tenSP varchar(255) not null,
 img varchar(50) not null,
 giatien int not null,
 mota varchar(255) not null,
+soluongSP int not null,
 iddm char(10) not null,
 foreign key (iddm) references danhmuc(id)
 ); 

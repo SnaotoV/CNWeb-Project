@@ -25,6 +25,9 @@ class Router{
         filter_var($_REQUEST['page']) : 1;
         $tenDM =isset($_REQUEST['tenDM']) ?
         filter_var($_REQUEST['tenDM']) : -1;
+        $maSP =isset($_REQUEST['maSP']) ?
+        filter_var($_REQUEST['maSP']) : -1;
+        $chiTietSanPham = $controlSanPham->chiTietSanPham($maSP);
         if($maDM==='all'){
             $allSanPham = $controlSanPham->trangSanPham($page);
             $soTrang = $controlSanPham->soTrangSanPham($maDM);

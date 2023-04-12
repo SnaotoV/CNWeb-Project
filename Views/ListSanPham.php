@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h4 class="card-title"><?=htmlspecialchars($SanPham->tenSP)?></h4>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="<?='chiTietSanPham?maSP='.$SanPham->id.'&tenSP'.$SanPham->tenSP?>" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div> 
         <?php endforeach?>

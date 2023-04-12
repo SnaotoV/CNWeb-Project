@@ -8,6 +8,7 @@ class ModelSanPham{
     public $giatien;
     public $mota;
     public $iddm;
+    public $soluongSP;
 
     public function __construct($pdo)
 	{
@@ -33,6 +34,14 @@ class ModelSanPham{
             $allSanPham[]=$SanPham;
         }
         return $allSanPham;
+    }
+    public function getChiTietSanPham($id){
+        $statement = $this->db->prepare('SELECT * FROM sanpham where id = :maSP');
+        $statement->execute(array('maSP'=>$id));
+        if($row = $statement->fetch()){
+            $this->fillFromSanPham($row);
+        }
+        return $this;
     }
     public function getSanPhamTheoDanhMuc($iddm){
         $allSanPham = [];
@@ -84,6 +93,7 @@ class ModelSanPham{
             'img'=>$this->img, 
             'giatien'=>$this->giatien,
             'mota'=>$this->mota,
+            'soluongSP'=>$this->soluongSP,
             'iddm'=>$this->iddm
 		] = $row;
 		return $this;

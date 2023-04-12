@@ -26,4 +26,8 @@ class controlSanPham{
         $controlSanPham = new ModelSanPham($this->db);
         return ceil($controlSanPham->countSanPhamTheoDanhMuc($iddm)/9);
     }
+    public function chiTietSanPham($id){
+        $controlSanPham = new ModelSanPham($this->db);
+        return $controlSanPham->getChiTietSanPham($id);
+    }
 }
