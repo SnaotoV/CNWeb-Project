@@ -30,6 +30,7 @@ class Router{
         $maSP =isset($_REQUEST['maSP']) ?
         filter_var($_REQUEST['maSP']) : -1;
         $controlUser->checkLogin();
+        $errors=$controlUser->getErrors();
         $chiTietSanPham = $controlSanPham->chiTietSanPham($maSP);
         if($maDM==='all'){
             $allSanPham = $controlSanPham->trangSanPham($page);

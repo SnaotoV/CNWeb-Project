@@ -20,6 +20,13 @@
                         <input type="password" name='matkhau' id='matkhau'>
                     </td>
                 </tr>
+                
+                <?php if (isset($errors['login'])) : ?>
+                    <span class="help-block">
+                        <strong><?= htmlspecialchars($errors['login']) ?></strong>
+                    </span>
+                    <?php endif ?>
+                
                 <tr>
                     <td></td>
                     <td>

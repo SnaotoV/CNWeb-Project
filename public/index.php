@@ -30,14 +30,14 @@ session_start();
                 <div class="display-4 align-self-center ml-4 name-shop"><i>HandMade</i></div>
             </div>
         </div>
-        <script>console.log('<?=$_SESSION['id']?>')</script>
-    <?php
+        <?php
     $Router = new Router($PDO);
     $request = $_SERVER['REQUEST_URI'];
     require_once '../paterial/header.php';
     $Router->Router($request);
     require_once '../paterial/footer.php';
     ?>
+    <script>console.log('<?=$_SESSION['id']?>')</script>
 </div>
 </body>
 </html>
