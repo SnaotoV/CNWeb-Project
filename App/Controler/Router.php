@@ -3,6 +3,7 @@ namespace App\Controler;
 use App\Model\ModelDanhMuc;
 use App\Model\ModelSanPham;
 use App\Controler\controlSanPham;
+use App\Controler\controlUser;
 use App\Controler\controlUrl;
 class Router{
     public $db;   
@@ -14,6 +15,7 @@ class Router{
         if($Url === '/'){
             exit(require_once '../Views/Home.php');
         }
+        $controlUser = new controlUser($this->db);
         $ModelDanhMuc = new ModelDanhMuc($this->db);
         $allDanhMuc = $ModelDanhMuc->getDanhMuc();
         $controlSanPham = new controlSanPham($this->db);
@@ -27,6 +29,7 @@ class Router{
         filter_var($_REQUEST['tenDM']) : -1;
         $maSP =isset($_REQUEST['maSP']) ?
         filter_var($_REQUEST['maSP']) : -1;
+        $controlUser->checkLogin();
         $chiTietSanPham = $controlSanPham->chiTietSanPham($maSP);
         if($maDM==='all'){
             $allSanPham = $controlSanPham->trangSanPham($page);
