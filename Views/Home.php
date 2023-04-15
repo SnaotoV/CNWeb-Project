@@ -28,43 +28,32 @@
             <div class="container">
                 <div class="row m-0">
                     <div class="card" style="width: 23rem;">
-                        <img src="img/11.jpg" class="card-img-top" />
+                        <img src="image/animal2.jpg" class="card-img-top" />
                         <div class="card-body">
-                            <h4 class="card-title">Điểm du lịch 1</h4>
+                            <h4 class="card-title">Gấu bông bằng len</h4>
                             <p class="card-text">
-                                Đây là địa điểm du lịch 1, chi tiết về điểm du lịch này các bạn
-                                có thể có được bằng cách liên lạc với chúng tôi trực tiếp qua
-                                điện thoại hoặc email.
+                                Gấu bông được làm từ len.
                             </p>
                         </div>
                     </div>
                     <div class="card" style="width: 23rem;">
-                        <img src="img/12.jpg" class="card-img-top" />
+                        <img src="image /candle.webp" class="card-img-top" />
                         <div class="card-body">
-                            <h4 class="card-title">Điểm du lịch 2</h4>
+                            <h4 class="card-title">Nến thơm</h4>
                             <p class="card-text">
-                                Đây là địa điểm du lịch 2, chi tiết về điểm du lịch này các bạn
-                                có thể có được bằng cách liên lạc với chúng tôi trực tiếp qua
-                                điện thoại hoặc email.
+                                Nến thơm tạo môi trường làm việc và sinh hoạt thoải mái dễ tập trung.
                             </p>
                         </div>
                     </div>
                     <div class="card" style="width: 23rem;">
-                        <img src="img/13.jpg" class="card-img-top" />
+                        <img src="image/vongtay.jpg" class="card-img-top" />
                         <div class="card-body">
-                            <h4 class="card-title">Điểm du lịch 3</h4>
+                            <h4 class="card-title">Vòng tay handmade</h4>
                             <p class="card-text">
-                                Đây là địa điểm du lịch 3, chi tiết về điểm du lịch này các bạn
-                                có thể có được bằng cách liên lạc với chúng tôi trực tiếp qua
-                                điện thoại hoặc email.
+                                Phụ kiện đơn giản dành cho các nàng cá tính.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="jumbotron text-center">
-            <h3>Hãy liên hệ với chúng tôi!</h3>
-            <p>Chúng tôi mong muốn lắng nghe từ bạn.</p>
-            <a href="contact.html">Liên hệ</a>
         </div>

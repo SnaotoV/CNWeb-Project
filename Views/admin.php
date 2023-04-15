@@ -1,18 +1,18 @@
 <div class="container-fluid">
     <div class='row'>
-        <div class="col-3">
-            <nav >
-                <div><a href="<?='admin?maDM=all&tenDM=all&page='?>">Tất cả sản phẩm</a></div>
+        <div class="col-2 nav-css   ">
+            <nav class='nav-css'>
+                <div class="link-css p-3"><a href="<?='admin?maDM=all&tenDM=all&page='?>">Tất cả sản phẩm</a></div>
                 <?php foreach ($allDanhMuc as $DanhMuc):?>
-                <div><a href="<?='admin?maDM='.$DanhMuc->id.'&tenDM='.$DanhMuc->tenDM."&page="?>"><?=htmlspecialchars($DanhMuc->tenDM)?></a></div>
+                    <div class="link-css  p-3"><a href="<?='admin?maDM='.$DanhMuc->id.'&tenDM='.$DanhMuc->tenDM."&page="?>"><?=htmlspecialchars($DanhMuc->tenDM)?></a></div>
                 <?php endforeach?>
                 </nav>
             </div>
-        <div class='col-9'>
+        <div class='col-10'>
             <h1 class='text-center'>Bảng Sản Phẩm</h1>
-            <div>
-                <a href="<?=BASE_URL_PATH.'addSanPham'?>" class="btn btn-primary">Thêm sản phẩm</a>
-                <table>
+                <div>
+                    <a href="<?=BASE_URL_PATH.'addSanPham'?>" class="btn btn-primary">Thêm sản phẩm</a>
+                    <table>
                     <?php foreach($allSanPham as $SanPham):?>
                         <tr>
                             <td>
@@ -50,14 +50,13 @@
                             </td>
                         </tr>
                     <?php endforeach?>
-                </table>
+                    </table>
                 <div class='col-12 row justify-content-center'>
-                <?php for($i=1;$i<=$soTrang;$i++):?>
-                    <a href="<?='admin?maDM='.$maDM.'&tenDM='.$tenDM."&page=".$i?>" class='p-2'><?=htmlspecialchars($i)?></a>
+                    <?php for($i=1;$i<=$soTrang;$i++):?>
+                        <a href="<?='admin?maDM='.$maDM.'&tenDM='.$tenDM."&page=".$i?>" class='p-2'><?=htmlspecialchars($i)?></a>
                     <?php endfor?>
                 </div>
             </div>
         </div>
-        <script>console.log('<?=$_POST['id']?>')</script>
     </div>
 </div>
