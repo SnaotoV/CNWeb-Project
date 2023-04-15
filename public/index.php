@@ -37,8 +37,6 @@ session_start();
     $Router->Router($request);
     require_once '../paterial/footer.php';
     ?>
-    <script>console.log('<?=$_POST['maSP']?>')</script>
-    <script>console.log('<?=$_POST['soluong']?>')</script>
 </div>
 </body>
 </html>

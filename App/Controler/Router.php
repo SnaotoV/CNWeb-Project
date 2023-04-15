@@ -31,6 +31,7 @@ class Router{
         filter_var($_REQUEST['tenDM']) : $ModelDanhMuc->getTenDM($maDM);
         $maSP =isset($_REQUEST['maSP']) ?
         filter_var($_REQUEST['maSP']) : -1;
+        $controlSanPham->addURL($makeUrl);
         $controlUser->addURL($makeUrl);
         $controlUser->checkLogin();
         $controlUser->registerUser();
@@ -39,10 +40,12 @@ class Router{
         $controlGioHang->addSanPham($makeUrl);
         $allGioHang=$controlGioHang->getGioHang();
         $chiTietSanPham = $controlSanPham->chiTietSanPham($maSP);
+        $controlSanPham->addNewSanPham();
+        $errors=$controlSanPham->getErrors();
+        $controlSanPham->deleteSanPham();
         if($maDM==='all'){
             $allSanPham = $controlSanPham->trangSanPham($page);
             $soTrang = $controlSanPham->soTrangSanPham($maDM);
-            
         }
         else{
             $allSanPham =$controlSanPham->trangSanPhamDM($maDM,$page);

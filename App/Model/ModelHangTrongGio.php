@@ -43,4 +43,14 @@ protected function fillFromSanPham(array $row)
     ] = $row;
     return $this;
 }
+public function removeSanPham($Data){
+    $result = false;
+        $statement = $this->db->prepare(
+            'delete from sanphamtronggio where maSP =:id;'
+        );
+        $result = $statement->execute([
+            'id'=>$Data['id']
+        ]);
+        return $result;
+}
 }

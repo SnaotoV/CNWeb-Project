@@ -11,7 +11,7 @@
         <div class='col-9'>
             <h1 class='text-center'>Bảng Sản Phẩm</h1>
             <div>
-                <a href="" class="btn btn-primary">Thêm sản phẩm</a>
+                <a href="<?=BASE_URL_PATH.'addSanPham'?>" class="btn btn-primary">Thêm sản phẩm</a>
                 <table>
                     <?php foreach($allSanPham as $SanPham):?>
                         <tr>
@@ -40,10 +40,13 @@
                                 <div class='p-3'><?=htmlspecialchars($SanPham->soluongSP)?></div>
                             </td>
                             <td>
-                                <button class="btn btn-primary mr-1">Sửa</button>
+                                <a href='<?=BASE_URL_PATH.'editSanPham?maSP='.$SanPham->id?>' class="btn btn-primary mr-1">Sửa</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger">Xóa</a>
+                                <form action="" method="post">
+                                    <input type="hidden" name='id' id='id' value='<?=htmlspecialchars($SanPham->id)?>'>
+                                    <button type='submit' class="btn btn-danger mr-1">Xóa</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach?>
@@ -55,5 +58,6 @@
                 </div>
             </div>
         </div>
+        <script>console.log('<?=$_POST['id']?>')</script>
     </div>
 </div>

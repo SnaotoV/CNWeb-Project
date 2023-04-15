@@ -28,13 +28,14 @@
     font-weight: 600;
 }
 
-.nav-css>a {
-    color: white;
+.nav-css>a,
+a.link-css {
     color: black;
     font-size: 20px;
 }
 
-.nav-css>a:hover {
+.nav-css>a:hover,
+a.link-css {
     color: #324ff1;
     background-color: #F4DCD6;
 }

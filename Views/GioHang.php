@@ -1,4 +1,5 @@
 <?php if(isset($_SESSION['id'])):?>
+<?php if(isset($allGioHang)):?>
     <div>
         <?php foreach($allGioHang as $SanPham):?>
             <table>
@@ -31,7 +32,10 @@
         </table>
             <?php endforeach?>
             <button class="btn btn-primary col-12">Thanh Toán</button>
-    </div>
+        </div>
+        <?php else :?>
+            <div>Bạn không có đơn hàng nào trong giỏ</div>
+        <?php endif?>
 <?php else :?>
     <div>Vui Lòng đăng nhập <a href="<?=BASE_URL_PATH.'login'?>">Đăng nhập</a></div>
 <?php endif?>

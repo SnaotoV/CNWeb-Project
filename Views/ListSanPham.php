@@ -3,7 +3,7 @@
         <nav>
             <div><a href="<?='ListSanPham?maDM=all&tenDM=all&page='?>">Tất cả sản phẩm</a></div>
             <?php foreach ($allDanhMuc as $DanhMuc):?>
-                    <div><a href="<?='ListSanPham?maDM='.$DanhMuc->id.'&tenDM='.$DanhMuc->tenDM."&page="?>"><?=htmlspecialchars($DanhMuc->tenDM)?></a></div>
+                    <div ><a href="<?='ListSanPham?maDM='.$DanhMuc->id.'&tenDM='.$DanhMuc->tenDM."&page="?>" class="link-css"><?=htmlspecialchars($DanhMuc->tenDM)?></a></div>
                 <?php endforeach?>
             </nav>
             <script>console.log('<?=$soTrang?>')</script>
