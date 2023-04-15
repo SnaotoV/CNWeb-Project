@@ -48,18 +48,22 @@ insert into danhmuc values('DL','Đồ dùng bằng len');
 insert into danhmuc values('OL','Ốp Lưng');
 insert into danhmuc values('MH','Mô Hình');
 insert into danhmuc values('VP','Văn Phòng Phẩm');
+insert into danhmuc values('PK','Phụ Kiện');
 
-insert into sanpham values(1,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',2,'DL');
-insert into sanpham values(2,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',3,'DL');
-insert into sanpham values(3,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',4,'DL');
-insert into sanpham values(4,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',5,'DL');
-insert into sanpham values(5,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',1,'DL');
-insert into sanpham values(6,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',5,'DL');
-insert into sanpham values(7,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',2,'DL');
-insert into sanpham values(8,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',3,'DL');
-insert into sanpham values(9,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',1,'DL');
-insert into sanpham values(10,'Thú cưng bằng len','image/animal2.jpg',300000,'Thú cưng được làm bằng len',3,'DL');
-select * from sanpham;
+insert into sanpham values(1,'Thú bông bằng len','image/animal2.jpg',300000,'Thú bông được làm bằng len',20,'DL');
+insert into sanpham values(2,'Nến Thơm','image/candle.webp',250000,'Nến thơm tạo không gian thoải mái',30,'NT');
+insert into sanpham values(3,'Hoa làm từ len','image/Hoalen.jpg',450000,'Hoa được làm từ len dùng trang trí nhà hoặc góc làm việc',40,'DL');
+insert into sanpham values(4,'Kit làm apaca','image/kitApaca.webp',200000,'Bộ kit làm Alpaca bằng len',50,'DL');
+insert into sanpham values(5,'Kẹp Tóc phụ kiện nữ','image/keptoc.jpg',30000,'Kẹp tóc phụ kiện cho nữ',10,'PK');
+insert into sanpham values(6,'Kit làm gấu bằng len','image/kitlen.jpg',320000,'Bộ kit làm gấu len chuyên dụng',40,'DL');
+insert into sanpham values(7,'Bộ kit làm nến thơm','image/kitnenthom.jpg',380000,'Bộ kit làm nến thơm cho người mới bắt đầu',20,'NT');
+insert into sanpham values(8,'Tranh đá','image/RockPicture.jpg',300000,'Tranh được làm từ đá cuội nhiều màu',30,'TT');
+insert into sanpham values(9,'Gấu bông màu hồng','image/teddy.jpg',390000,'Gấu bông handmade màu hồng cute',30,'DL');
+insert into sanpham values(10,'Túi đeo chéo tự làm','image/tuideocheo.jpg',330000,'Túi đeo chéo tự làm dành cho các bạn nữ',30,'PK');
+insert into sanpham values(11,'Tranh sơn dầu','image/tranhsondau.jpg',320000,'Tranh Sơn Dầu dành trang trí nhà',30,'TT');
+insert into sanpham values(12,'Vòng tay dành cho nữ','image/vongtay.jpg',3000,'Vòng tay phụ kiện đơn giản dành cho nữ',30,'PK');
+
+
 Delimiter $$
 drop procedure if exists xuatSP $$
 create procedure xuatSP(iddm char(10), batdau int,ketthuc int)
@@ -73,14 +77,3 @@ create procedure xuatAllSP(batdau int,ketthuc int)
 begin
 SELECT * FROM sanpham LIMIT batdau, ketthuc;
 end;$$
-call xuatSP('DL',0,9);
-select count(id) as soluong from sanpham where iddm ='DL';
-select id from giohang where idnd = '2';
-select * from nguoidung;
-select * from sanphamtronggio;
-insert into sanphamtronggio  values(1,1,2);
-select * from sanphamtronggio where idgh = 1 and maSP= '1';
- update sanphamtronggio set 
-                soluong = soluong + 2
-                where maSP = 1 and idgh = 1;
-select sanpham(*)from sanpham;

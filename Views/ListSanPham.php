@@ -11,8 +11,8 @@
         </div>
         <div class="col-10 row">
             <?php foreach($allSanPham as $SanPham):?>
-                <div class="card" style="width: 23rem;">
-                    <img src="<?=htmlspecialchars($SanPham->img)?>" class="card-img-top" />
+                <div class="card col-4" style="width: 23rem;">
+                    <img src="<?=htmlspecialchars($SanPham->img)?>" class="card-img-top img-css" />
                     <div class="card-body">
                         <h4 class="card-title"><?=htmlspecialchars($SanPham->tenSP)?></h4>
                         <p class="card-text"></p>
