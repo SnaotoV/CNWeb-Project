@@ -8,18 +8,13 @@ matkhau varchar(32) not null,
 hoten varchar(50) not null,
 email varchar(50) not null,
 sdt varchar(10) not null,
+diachi varchar(255) not null,
 user_type varchar(10) not null
 );
 create table giohang(
 id int(10) Not null primary key auto_increment,
 idnd int(10),
 foreign key (idnd) references nguoidung(id)
-);
-create table sanphamTronggio(
-idgh int(10) not null,
-maSP int(10) not null,
-foreign key (idgh) references giohang(id),
-foreign key (maSP) references sanpham(id)
 );
 create table danhmuc(
 id char(10) not null primary key,
@@ -35,8 +30,17 @@ soluongSP int not null,
 iddm char(10) not null,
 foreign key (iddm) references danhmuc(id)
 ); 
+create table sanphamTronggio(
+idgh int(10) not null,
+maSP int(10) not null,
+soluong int not null,
+foreign key (idgh) references giohang(id),
+foreign key (maSP) references sanpham(id)
+);
 
-insert into nguoidung values(1,'Admin','Admin','Admin','admin@gmail.com','0353879719','Admin');
+insert into nguoidung values(1,'Admin','Admin','Admin','admin@gmail.com','0353879719','Sóc Trăng','Admin');
+insert into nguoidung values(2,'Toan2707','Toan2707','Võ Phúc Toàn','vophuctoan365@gmail.com','0353879719','Sóc Trăng','Admin');
+insert into giohang values(1,2);
 
 insert into danhmuc values('NT','Nến Thơm');
 insert into danhmuc values('TT','Trang Trí');
@@ -71,6 +75,12 @@ SELECT * FROM sanpham LIMIT batdau, ketthuc;
 end;$$
 call xuatSP('DL',0,9);
 select count(id) as soluong from sanpham where iddm ='DL';
-
-insert into nguoidung(taikhoan,matkhau,hoten,email,sdl) values(taikhoan,matkhau,hoten,email,sdl);
-
+select id from giohang where idnd = '2';
+select * from nguoidung;
+select * from sanphamtronggio;
+insert into sanphamtronggio  values(1,1,2);
+select * from sanphamtronggio where idgh = 1 and maSP= '1';
+ update sanphamtronggio set 
+                soluong = soluong + 2
+                where maSP = 1 and idgh = 1;
+select sanpham(*)from sanpham;

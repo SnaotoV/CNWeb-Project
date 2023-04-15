@@ -3,6 +3,7 @@ namespace App\Controler;
 use App\Model\ModelDanhMuc;
 use App\Model\ModelSanPham;
 use App\Controler\controlSanPham;
+use App\Controler\controlGioHang;
 use App\Controler\controlUser;
 use App\Controler\controlUrl;
 class Router{
@@ -19,6 +20,7 @@ class Router{
         $ModelDanhMuc = new ModelDanhMuc($this->db);
         $allDanhMuc = $ModelDanhMuc->getDanhMuc();
         $controlSanPham = new controlSanPham($this->db);
+        $controlGioHang = new controlGioHang($this->db);
         $controlUrl=new controlUrl($this->db);
         $makeUrl = $controlUrl->getUrl($Url);
         $maDM =isset($_REQUEST['maDM']) ?
@@ -26,15 +28,21 @@ class Router{
         $page =isset($_REQUEST['page'])&&!empty($_REQUEST['page']) ?
         filter_var($_REQUEST['page']) : 1;
         $tenDM =isset($_REQUEST['tenDM']) ?
-        filter_var($_REQUEST['tenDM']) : -1;
+        filter_var($_REQUEST['tenDM']) : $ModelDanhMuc->getTenDM($maDM);
         $maSP =isset($_REQUEST['maSP']) ?
         filter_var($_REQUEST['maSP']) : -1;
+        $controlUser->addURL($makeUrl);
         $controlUser->checkLogin();
+        $controlUser->registerUser();
+        $controlUser->logoutUser();
         $errors=$controlUser->getErrors();
+        $controlGioHang->addSanPham($makeUrl);
+        $allGioHang=$controlGioHang->getGioHang();
         $chiTietSanPham = $controlSanPham->chiTietSanPham($maSP);
         if($maDM==='all'){
             $allSanPham = $controlSanPham->trangSanPham($page);
             $soTrang = $controlSanPham->soTrangSanPham($maDM);
+            
         }
         else{
             $allSanPham =$controlSanPham->trangSanPhamDM($maDM,$page);

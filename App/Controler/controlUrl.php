@@ -5,4 +5,8 @@ class controlUrl{
         $arrayUrl=explode('?', $url);
     return $arrayUrl[0];
     }
+    public function back($url){
+        $arrayUrl=explode('/', $url);
+        return $arrayUrl[3];
+    }
 }

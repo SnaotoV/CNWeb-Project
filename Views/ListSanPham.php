@@ -19,10 +19,10 @@
                 </div>
             </div> 
         <?php endforeach?>
-        <div class='col-12 offset-5'>
-            <?php for($i=1;$i<=$soTrang;$i++):?>
-                <a href="<?='ListSanPham?maDM='.$maDM.'&tenDM='.$tenDM."&page=".$i?>"><?=htmlspecialchars($i)?></a>
-                <?php endfor?>
-        </div>
+        <div class='col-12 row justify-content-center'>
+                <?php for($i=1;$i<=$soTrang;$i++):?>
+                    <a href="<?='ListSanPham?maDM='.$maDM.'&tenDM='.$tenDM."&page=".$i?>" class='p-2'><?=htmlspecialchars($i)?></a>
+                    <?php endfor?>
+                </div>
     </div>
 </div>

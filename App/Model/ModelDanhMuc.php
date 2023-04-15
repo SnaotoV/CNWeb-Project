@@ -21,6 +21,18 @@ class ModelDanhMuc{
         }
         return $allDanhMuc;
     }
+    public function getTenDM($iddm){
+        $statement = $this->db->prepare('select tenDM from danhmuc where id=:iddm');
+        $statement->execute(array('iddm'=>$iddm));
+        if($row = $statement->fetch()){
+            $this->fillTenDM($row);
+        }
+        return $this;
+    }
+    protected function fillTenDM(array $row){
+        ['tenDM'=>$this->tenDM]=$row;
+        return $this;
+    }
     protected function fillFromDanhMuc(array $row)
 	{
 		[
